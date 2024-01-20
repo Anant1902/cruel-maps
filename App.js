@@ -1,31 +1,34 @@
-import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View, TextInput } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 
 export default function App() {
+  const [startPoint, setStartPoint] = useState("");
+  const [endPoint, setEndPoint] = useState("");
+  const [selectedOption, setSelectedOption] = useState("Option 1");
 
-  const [startPoint, setStartPoint] = useState('');
-  const [endPoint, setEndPoint] = useState('');
-  const [selectedOption, setSelectedOption] = useState('Option 1');
-
-  const options = ['Option 1', 'Option 2', 'Option 3'];
+  const options = ["Option 1", "Option 2", "Option 3"];
 
   return (
-    <View style={styles.container}>
-      <Text>Start Point:</Text>
+    <View style={styles.container} id="">
+      <Text style={styles.label}>Start Point:</Text>
       <TextInput
         style={styles.input}
         value={startPoint}
-        onChangeText={(text) => setStartPoint(text)}/>
+        onChangeText={(text) => setStartPoint(text)}
+        placeholder="Enter start point"
+      />
 
-      <Text>End Point:</Text>
+      <Text style={styles.label}>End Point:</Text>
       <TextInput
         style={styles.input}
         value={endPoint}
-        onChangeText={(text) => setEndPoint(text)}/>
+        onChangeText={(text) => setEndPoint(text)}
+        placeholder="Enter end point"
+      />
 
-      <Text>Select an Option:</Text>
+      <Text style={styles.label}>Select an Option:</Text>
       <Picker
         style={styles.picker}
         selectedValue={selectedOption}
@@ -36,7 +39,6 @@ export default function App() {
         ))}
       </Picker>
 
-      {/* <Text>Open up App.js to start working on your app!</Text> */}
       <StatusBar style="auto" />
     </View>
   );
@@ -45,20 +47,29 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#f0f0f0",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 16,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 4,
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: "#ccc",
     borderWidth: 1,
     marginBottom: 16,
     paddingLeft: 8,
-    width: '100%',
+    width: "100%",
+    borderRadius: 8,
   },
   picker: {
     height: 40,
-    width: '100%',
+    width: "100%",
+    borderColor: "#ccc",
+    borderWidth: 1,
+    borderRadius: 8,
   },
 });
