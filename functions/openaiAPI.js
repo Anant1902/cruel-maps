@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const OPENAI_API_KEY = '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'; // Replace with your actual API key
+const OPENAI_API_KEY = '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'; // Replace with your actual API key
 const OPENAI_API_ENDPOINT = 'https://api.openai.com/v1/chat/completions';
 
 // Function to call OpenAI's API
