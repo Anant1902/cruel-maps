@@ -14,6 +14,7 @@ import { GOOGLE_API_KEY } from "./environments";
 import Constants from "expo-constants";
 import { useRef, useState } from "react";
 import MapViewDirections from "react-native-maps-directions";
+import { callOpenAI } from './functions/openaiAPI';
 
 // https://docs.expo.dev/versions/latest/sdk/map-view/
 // https://www.npmjs.com/package/react-native-google-places-autocomplete
@@ -61,13 +62,30 @@ function InputAutocomplete({
   );
 }
 
+// async function openAIConnect() {
+//   try {
+//       const response = await callOpenAI();
+//       console.log('OpenAI response:', response);
+//   } catch (error) {
+//       console.error('Error fetching response from OpenAI:', error);
+//   }
+// }
+
 export default function App() {
+  const nus = {latitude: 1.2966, longitude: 103.7764}
+  const dhoby = {latitude: 1.2989, longitude: 103.8455}
+  const hougang = {latitude: 1.3729, longitude: 103.9021}
+  const seletarCamp = {latitude: 1.4113, longitude: 103.8742}
+
   const [origin, setOrigin] = useState<LatLng | null>();
+  const [harcoded, changeHardcoded] = useState<LatLng[] | null>([nus, dhoby, seletarCamp, hougang]);
   const [destination, setDestination] = useState<LatLng | null>();
   const [showDirections, setShowDirections] = useState(false);
   const [distance, setDistance] = useState(0);
   const [duration, setDuration] = useState(0);
   const mapRef = useRef<MapView>(null);
+  // console.log(openAIConnect())
+
 
   const moveTo = async (position: LatLng) => {
     const camera = await mapRef.current?.getCamera();
@@ -123,15 +141,21 @@ export default function App() {
         initialRegion={INITIAL_POSITION}
       >
         {origin && <Marker coordinate={origin} />}
+        {harcoded && harcoded.map((point) => (
+          <Marker coordinate={point} key={point.latitude} />
+        ))}
         {destination && <Marker coordinate={destination} />}
         {showDirections && origin && destination && (
           <MapViewDirections
             origin={origin}
+            waypoints={harcoded}
             destination={destination}
             apikey={GOOGLE_API_KEY}
             strokeColor="#6644ff"
             strokeWidth={4}
             onReady={traceRouteOnReady}
+            mode="DRIVING"
+            precision="high"
           />
         )}
       </MapView>
