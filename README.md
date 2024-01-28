@@ -8,9 +8,11 @@ Look no further than Cruel Maps!
 
 Give us a destination and we guarantee that your journey will be exhilaratingly eerie.
 
-<img width="443" align="right" alt="Screenshot 2024-01-28 at 8 27 48 PM" src="https://github.com/Anant1902/cruel-maps/assets/19762596/8d4093a1-c050-4d22-9900-4ee6e2401030">
+
 
 ## Overview
+<img width="400" align="right" alt="Screenshot 2024-01-28 at 8 27 48 PM" src="https://github.com/Anant1902/cruel-maps/assets/19762596/8d4093a1-c050-4d22-9900-4ee6e2401030">
+
 ### What it does
 
 Given a start and end point, the app then suggests a creepy route.
