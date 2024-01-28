@@ -1,5 +1,5 @@
 # Cruel Maps
-> "It's not about the destination, it's about the **Journey**" – Us, 2024
+> "It's not about the destination, it's about the _Journey_" – Us, 2024
 
 ## Value Proposition
 Tired of taking the same boring route home everday? Feel like spicing things up?
@@ -37,9 +37,9 @@ It is easier to ideate than execute.
 
 Actually making it useful. Maybe coming up with scenic routes or culturally rich routes (routes that people actually want to go on).
 
-## Try it out yourself
+## Usage Instructions
 
-Make sure you have [npm](https://www.npmjs.com) installed on your machine before you continue!
+Wanna try out Cruel Maps yourself? Make sure you have [npm](https://www.npmjs.com) installed on your machine before you continue!
 
 1. Clone the repo
 ```sh
@@ -56,5 +56,9 @@ npm install expo
 npx expo start
 ```
 
+4. Follow the instructions to view the application on your preferred platform.
+
 ## Notes
-Find our Hack'n'Roll 24 submission devpost [here](https://devpost.com/software/cruel-maps).
+This project was ideated, coded, debugged and demo-ed in a span of 24 hours, as part of [Hack'n'Roll 24](https://hacknroll.nushackers.org).
+
+Find our submission devpost (and team information) [here](https://devpost.com/software/cruel-maps).
